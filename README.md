@@ -1,7 +1,7 @@
 PROJECT OVERVIEW
 
 Description:
-My project will be application that searches and filters through music utilizing Spotify's API.
+My project will be an application that searches and filters through music utilizing Spotify's API.
 
 PREREQUISITES
 
@@ -11,11 +11,11 @@ ExpressJS:
 
 GETTING STARTED
 
-instrustions for setup:
+instructions for setup:
 
 LINKS
 
-neccassary links:
+necessary links:
 
 Local build:
 
