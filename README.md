@@ -1,24 +1,32 @@
-PROJECT OVERVIEW
+Project Overview
 
 Description:
 My project will be application that searches and filters through music utilizing Spotify's API.
 
-PREREQUISITES
+Prerequities
 
 Software requirements:
 ReactJS:
+npm
+Brew
 ExpressJS:
 
-GETTING STARTED
+Getting Started
 
 instrustions for setup:
+for launching API:
+cd api
+npm start
 
-LINKS
+for launching front-end:
+cd reactjs
+npm start
+
+Links
 
 neccassary links:
 
-Local build:
-
-Staging Links:
+http://localhost:3000 - link to front-end reactjs application
+http://localhost:8000 - link to backend Express API
 
 Figma Link:
