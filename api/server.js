@@ -12,9 +12,11 @@ const spotifyRouter = require("./routes/spotifyRoutes");
 
 app.use(cors());
 
+const DATABASE_URL = process.env.DATABASE_URL;
+
 // connection to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI, {
+  .connect(MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
