@@ -31,4 +31,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get("/login", (req, res) => {
+  res.send("<h1>Login Page</h1><h3>Welcome to music finder</h3>");
+});
+
 module.exports = router;

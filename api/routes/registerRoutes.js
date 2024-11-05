@@ -29,4 +29,8 @@ router.post("/register", async (req, res) => {
   }
 });
 
+router.get("/register", (req, res) => {
+  res.send("<h1>Register New User</h1>");
+});
+
 module.exports = router;
