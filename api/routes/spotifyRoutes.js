@@ -1,29 +1,30 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+const axios = require("axios");
+const { verifyToken } = require("../services/auth");
 
 const router = express.Router();
 
-// Login route
-router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+router.use(verifyToken);
+
+router.get("/search", async (req, res) => {
+  const { query } = req.query;
 
   try {
-    const user = await User.findOne({ username });
-    if (!user) return res.status(401).send("User not found");
-
-    const isMatch = await brcrypt.compare(password, user.passwordHash);
-    if (!isMatch) return res.status(401).send("Invalid credentials");
-
-    // Generate JWT
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
+    const response = await axios.get(`http://api.spotify.com/v1/search`, {
+      headers: {
+        Authorization: `Bearer ${process.env.SPOTIFY_ACCESS_TOKEN}`,
+      },
+      params: {
+        q: query,
+        type: "albums,artist,track",
+      },
     });
-    res.json({ token });
+
+    res.json(response.data);
   } catch (error) {
-    res.status(500).send("Server error");
+    console.error(error);
+    res.status(500).send("Error searching Spotify");
   }
 });
 
-modules.exports = router;
+module.exports = router;
