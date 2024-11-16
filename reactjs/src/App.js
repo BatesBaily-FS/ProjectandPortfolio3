@@ -10,7 +10,7 @@ import {
 import NoResults from "./pages/NoResults";
 import Results from "./pages/Results";
 import Login from "./pages/Login";
-import Callback from "./components/Callback";
+import AuthCallback from "./pages/Callback";
 
 function App() {
   return (
@@ -38,8 +38,8 @@ function App() {
           <Route path="/results" element={<Results />} />
           {/* <Route path="/search" element={<SearchComponent />} /> */}
           <Route path="/" element={<Navigate to="/login" replace />} />
-          <Route path="/callback" element={<Callback />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/callback" element={<AuthCallback />} />
         </Routes>
       </div>
     </Router>

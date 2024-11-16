@@ -1,8 +1,13 @@
 import React from "react";
 
 function Login() {
+  const clientId = "2fe5b6e2c26c464ab27f9240ddaece65";
+  const redirectUri = "http://localhost:3000/callback";
+
+  const scopes = ["user-read-private", "user-read-email"];
+
   const handleLogin = () => {
-    window.location.href = "http://localhost:8000/auth/spotify";
+    window.location.href = "http://localhost:8888/auth/login";
   };
 
   return (
@@ -14,7 +19,9 @@ function Login() {
           account{" "}
         </h3>
         <div className="signinButton">
-          <button onClick={handleLogin}>Login with Spotify</button>
+          <button onClick={handleLogin} className="button">
+            Login with Spotify
+          </button>
         </div>
       </main>
     </div>
