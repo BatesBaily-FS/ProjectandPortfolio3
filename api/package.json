@@ -4,8 +4,8 @@
   "description": "music app using spotify api",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node projectAndPortfolio3/api/server.js",
+    "dev": "nodemon projectAndPortfolio3/api/server.js",
     "test": "jest"
   },
   "dependencies": {
