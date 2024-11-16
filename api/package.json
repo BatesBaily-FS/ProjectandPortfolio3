@@ -2,7 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "music app using spotify api",
-  "main": "server.js",
+  "main": "app/api/server.js",
   "scripts": {
     "start": "node app/api/server.js",
     "dev": "nodemon app/api/server.js",
