@@ -73,7 +73,7 @@ router.get("/callback", async (req, res) => {
         new URLSearchParams({
           grant_type: "authorization_code",
           code: code,
-          redirect_uri: redirect_uri,
+          redirect_uri: REDIRECT_URI,
         }),
         {
           headers: {
