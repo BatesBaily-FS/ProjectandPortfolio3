@@ -12,7 +12,10 @@ const client_id = process.env.SPOTIFY_CLIENT_ID;
 console.log("client_id:", client_id);
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 console.log("client_secret", client_secret);
-const redirect_uri = process.env.REDIRECT_URI;
+const REDIRECT_URI =
+  process.env.NODE_ENV === "production"
+    ? "https://git.heroku.com/projectportfolio3.git/auth/callback"
+    : "http://localhost:8888/auth/callback";
 
 function generateRandomString(length) {
   const characters =

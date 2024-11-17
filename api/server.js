@@ -19,6 +19,11 @@ console.log("REDIRECT_URI:", process.env.REDIRECT_URI);
 const app = express();
 const PORT = process.env.PORT || 8888;
 
+const REDIRECT_URI =
+  process.env.NODE_ENV === "production"
+    ? "https://git.heroku.com/projectportfolio3.git/auth/callback"
+    : "http://localhost:8888/auth/callback";
+
 // Middlewares
 app.use(
   cors({
