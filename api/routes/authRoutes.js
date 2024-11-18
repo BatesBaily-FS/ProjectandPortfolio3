@@ -90,6 +90,7 @@ router.get("/callback", async (req, res) => {
 
       if (response.status === 200) {
         const accessToken = data.access_token;
+        const refreshToken = data.refresh_token;
 
         const userResponse = await axios.get("https://api.spotify.com/v1/me", {
           headers: { Authorization: `Bearer ${accessToken}` },
@@ -108,9 +109,22 @@ router.get("/callback", async (req, res) => {
           expiresIn: "1h",
         });
 
-        await JWTModel.create({ token, userId: user._id });
+        const refreshTokenJWT = jwt.sign(
+          { id: user._id },
+          process.env.JWT_SECRET,
+          {
+            expiresIn: "7d",
+          }
+        );
+
+        await JWTModel.create({
+          token,
+          refreshToken: refreshTokenJWT,
+          userId: user._id,
+        });
 
         res.cookie("jwt", token, { httpOnly: true });
+        res.cookie("refreshToken", refreshTokenJWT, { httpOnly: true });
 
         res.redirect("/noresults");
       } else {
