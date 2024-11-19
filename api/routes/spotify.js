@@ -1,9 +1,9 @@
 const express = require("express");
 const axios = require("axios");
 const router = express.Router();
-const verifyJWT = require("../middlewares/verifyJWT");
+const authJWT = require("../middlewares/authJWT");
 
-router.use(verifyJWT);
+router.use(authJWT);
 
 router.get("/search", async (req, res) => {
   const { query } = req.query;
