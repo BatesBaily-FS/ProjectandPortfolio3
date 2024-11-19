@@ -35,6 +35,7 @@ router.get("/login", function (req, res) {
   req.session.state = state;
   const scope = "user-read-private user-read-email";
 
+  console.log("redirecting to Spotify...");
   res.redirect(
     "https://accounts.spotify.com/authorize?" +
       querystring.stringify({

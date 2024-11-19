@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 8888;
 
 const REDIRECT_URI =
   process.env.NODE_ENV === "production"
-    ? "https://git.heroku.com/projectportfolio3.git/auth/callback"
+    ? "https://projectportfolio3-d62d160438fd.herokuapp.com/auth/callback"
     : "http://localhost:8888/auth/callback";
 
 // Middlewares

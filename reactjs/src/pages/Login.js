@@ -3,6 +3,12 @@ import React from "react";
 import logo from "../components/spotifyLogo1.png";
 
 function Login() {
+  const clientId = "2fe5b6e2c26c464ab27f9240ddaece65";
+  const redirectUri =
+    "https://projectportfolio3-d62d160438fd.herokuapp.com/auth/callback";
+
+  const scopes = ["user-read-private", "user-read-email"];
+
   const handleLogin = () => {
     window.location.href =
       "https://projectportfolio3-d62d160438fd.herokuapp.com/auth/login";
