@@ -10,12 +10,16 @@ import {
 import NoResults from "./pages/NoResults";
 import Results from "./pages/Results";
 import Login from "./pages/Login";
+import logo from "./components/spotifyLogo1.png";
 
 function App() {
   return (
     <Router>
       <div>
         <header className="header">
+          <div className="logo-container">
+            <img src={logo} className="logo" />
+          </div>
           <div>
             <nav>
               <ul className="navigation">

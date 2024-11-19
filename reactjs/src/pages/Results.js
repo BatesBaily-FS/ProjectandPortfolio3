@@ -9,7 +9,7 @@ function Results() {
   };
 
   return (
-    <div>
+    <div className="results-page">
       {/* <SearchComponent /> */}
       <main>
         <h1>Search Results</h1>
