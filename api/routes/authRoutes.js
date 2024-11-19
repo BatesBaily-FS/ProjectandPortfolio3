@@ -92,6 +92,8 @@ router.get("/callback", async (req, res) => {
         const accessToken = data.access_token;
         const refreshToken = data.refresh_token;
 
+        req.session.accessToken = accessToken;
+
         const userResponse = await axios.get("https://api.spotify.com/v1/me", {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
@@ -105,9 +107,13 @@ router.get("/callback", async (req, res) => {
           });
         }
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-          expiresIn: "1h",
-        });
+        const token = jwt.sign(
+          { id: user._id, accessToken },
+          process.env.JWT_SECRET,
+          {
+            expiresIn: "1h",
+          }
+        );
 
         const refreshTokenJWT = jwt.sign(
           { id: user._id },

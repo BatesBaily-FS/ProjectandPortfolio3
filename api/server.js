@@ -31,6 +31,9 @@ app.use(
     credentials: true,
   })
 );
+
+app.use(express.static(path.join(__dirname, "../reactjs/build")));
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -51,6 +54,10 @@ mongoose
   })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error(err));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../reactjs/build", "index.html"));
+});
 
 app.get("/", (req, res) => {
   res.send("Welcome to Login page");
