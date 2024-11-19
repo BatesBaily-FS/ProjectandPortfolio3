@@ -59,14 +59,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../reactjs/build", "index.html"));
 });
 
-app.get("/", (req, res) => {
-  res.send("Welcome to Login page");
-});
-
-app.get("/noresults", (req, res) => {
-  res.send("This is the no results page.");
-});
-
 // Routes
 app.use("/auth", authRouter);
 app.use("/api", spotifyRouter);
