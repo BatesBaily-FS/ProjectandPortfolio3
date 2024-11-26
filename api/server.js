@@ -54,6 +54,10 @@ app.get("/login", function (req, res) {
   res.send("Login Page");
 });
 
+app.get("/noresults", function (req, res) {
+  res.send("No results");
+});
+
 // Routes
 app.use("/auth", authRouter);
 app.use("/api", spotifyRouter);

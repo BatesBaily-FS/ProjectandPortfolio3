@@ -134,7 +134,8 @@ router.get("/callback", async (req, res) => {
         res.cookie("jwt", token, { httpOnly: true });
         res.cookie("refreshToken", refreshTokenJWT, { httpOnly: true });
 
-        res.redirect("/noresults");
+        res.redirect("http://localhost:8888/noresults");
+        console.log("successful");
       } else {
         console.error("Error fetching token", data);
         res.redirect("/login");
