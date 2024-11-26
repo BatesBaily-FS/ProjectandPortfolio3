@@ -1,0 +1,90 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  background-color: black;
+  height: 10vh;
+}
+
+.navigation {
+  display: flex;
+  gap: 10px;
+  align-items: right;
+}
+
+.logo {
+  height: 60px;
+  margin-left: 10px;
+}
+
+.logo-container {
+  align-content: center;
+}
+
+/* Login page */
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  background-color: #d9d9d9;
+  height: 90vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.page-logo {
+  height: 80px;
+}
+
+.login-heading {
+}
+
+.login-message {
+  word-break: break-all;
+}
+
+/* No Results Page */
+
+.noresults-page {
+  display: flex;
+  flex-direction: column;
+  background-color: #d9d9d9;
+  height: 90vh;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Results Page */
+
+.results-page {
+  display: flex;
+  flex-direction: column;
+  background-color: #d9d9d9;
+  height: 90vh;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
