@@ -50,6 +50,10 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error(err));
 
+app.get("/login", function (req, res) {
+  res.send("Login Page");
+});
+
 // Routes
 app.use("/auth", authRouter);
 app.use("/api", spotifyRouter);

@@ -17,12 +17,12 @@ const AuthCallback = () => {
     }
 
     if (code) {
-      fetch(`http://localhost:8888/auth/callback?code=${code}&state=${state}`)
+      fetch(`http://localhost:3000/auth/callback?code=${code}&state=${state}`)
         .then((response) => {
           if (response.ok) {
             navigate("/noresults");
           } else {
-            navigate("/noresults");
+            navigate("/login");
           }
         })
         .catch((err) => {
