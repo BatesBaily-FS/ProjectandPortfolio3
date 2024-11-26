@@ -17,7 +17,9 @@ const AuthCallback = () => {
     }
 
     if (code) {
-      fetch(`http://localhost:3000/auth/callback?code=${code}&state=${state}`)
+      fetch(
+        `https://projectportfolio3-d62d160438fd.herokuapp.com/auth/callback?code=${code}&state=${state}`
+      )
         .then((response) => {
           if (response.ok) {
             navigate("/noresults");
