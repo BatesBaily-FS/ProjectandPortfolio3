@@ -8,9 +8,11 @@ function Login() {
     const clientId = "2fe5b6e2c26c464ab27f9240ddaece65";
     const redirectUri = window.location.origin + "/auth/callback";
     const scopes = ["user-read-private", "user-read-email"];
+    const state = generateRandomString(16);
+
     const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${clientId}&redirect_uri=${encodeURIComponent(
       redirectUri
-    )}&scope=${encodeURIComponent(scopes)}`;
+    )}&scope=${encodeURIComponent(scopes.join(" "))}&state=${state}`;
     window.location.href = authUrl;
   };
 

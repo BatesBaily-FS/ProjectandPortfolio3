@@ -12,10 +12,7 @@ const client_id = process.env.SPOTIFY_CLIENT_ID;
 console.log("client_id:", client_id);
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 console.log("client_secret", client_secret);
-const REDIRECT_URI =
-  process.env.NODE_ENV === "production"
-    ? "https://projectportfolio3-d62d160438fd.herokuapp.com/auth/callback"
-    : "http://localhost:8888/auth/callback";
+const REDIRECT_URI = "http://localhost:8888/auth/callback";
 
 function generateRandomString(length) {
   const characters =
@@ -44,6 +41,7 @@ router.get("/login", function (req, res) {
         scope: scope,
         redirect_uri: REDIRECT_URI,
         state: state,
+        show_dialog: true,
       })
   );
 });

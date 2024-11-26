@@ -19,15 +19,10 @@ console.log("REDIRECT_URI:", process.env.REDIRECT_URI);
 const app = express();
 const PORT = process.env.PORT || 8888;
 
-const REDIRECT_URI =
-  process.env.NODE_ENV === "production"
-    ? "https://projectportfolio3-d62d160438fd.herokuapp.com/auth/callback"
-    : "http://localhost:8888/auth/callback";
-
 // Middlewares
 app.use(
   cors({
-    origin: "*",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
@@ -55,13 +50,13 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error(err));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../reactjs/build", "index.html"));
-});
-
 // Routes
 app.use("/auth", authRouter);
 app.use("/api", spotifyRouter);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../reactjs/build", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
