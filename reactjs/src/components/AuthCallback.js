@@ -22,7 +22,7 @@ const AuthCallback = () => {
           if (response.ok) {
             navigate("/noresults");
           } else {
-            navigate("/login");
+            navigate("/noresults");
           }
         })
         .catch((err) => {
