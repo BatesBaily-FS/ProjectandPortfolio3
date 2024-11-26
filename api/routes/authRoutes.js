@@ -12,7 +12,10 @@ const client_id = process.env.SPOTIFY_CLIENT_ID;
 console.log("client_id:", client_id);
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 console.log("client_secret", client_secret);
-const REDIRECT_URI = "http://localhost:8888/auth/callback";
+const REDIRECT_URI =
+  process.env.NODE_ENV === "production"
+    ? "http://localhost:8888/auth/callback"
+    : "http://localhost:3000/auth/callback";
 
 function generateRandomString(length) {
   const characters =

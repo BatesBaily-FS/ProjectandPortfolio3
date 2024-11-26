@@ -10,6 +10,7 @@ import {
 import NoResults from "./pages/NoResults";
 import Results from "./pages/Results";
 import Login from "./pages/Login";
+import AuthCallback from "./components/AuthCallback.js";
 import logo from "./components/spotifyLogo1.png";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           {/* <Route path="/search" element={<SearchComponent />} /> */}
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
         </Routes>
       </div>
     </Router>
