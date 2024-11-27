@@ -23,6 +23,7 @@ router.get("/search", async (req, res) => {
       },
     });
 
+    console.log("Spotify API response:", response.data);
     res.json(response.data);
   } catch (error) {
     console.error(error);

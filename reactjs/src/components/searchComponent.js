@@ -9,6 +9,7 @@ const SearchComponent = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
+
     if (!query) {
       alert("Please enter a search query.");
       return;
