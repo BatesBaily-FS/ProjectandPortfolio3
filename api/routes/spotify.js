@@ -8,7 +8,7 @@ router.use(authJWT);
 const isTokenExpired = (accessToken) => {
   if (!accessToken) return true;
   const payload = JSON.parse(
-    Buffer.from(token.split(".")[1], "base64").toString()
+    Buffer.from(accessToken.split(".")[1], "base64").toString()
   );
   const currentTime = Math.floor(Date.now() / 1000);
   return payload.exp < currentTime;
