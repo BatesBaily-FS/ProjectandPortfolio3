@@ -8,11 +8,21 @@ router.use(authJWT);
 const isTokenExpired = (accessToken) => {
   console.log("Access token is:", accessToken);
   if (!accessToken) return true;
-  const payload = JSON.parse(
-    Buffer.from(accessToken.split(".")[1], "base64").toString()
-  );
-  const currentTime = Math.floor(Date.now() / 1000);
-  return payload.exp < currentTime;
+  const tokenParts = accessToken.split(".");
+  if (tokenParts.length !== 3) {
+    console.error("Invalid token format");
+    return true;
+  }
+  try {
+    const payload = JSON.parse(
+      Buffer.from(accessToken.split(".")[1], "base64").toString()
+    );
+    const currentTime = Math.floor(Date.now() / 1000);
+    return payload.exp < currentTime;
+  } catch (error) {
+    console.error("Failed to parse access token payload", error);
+    return true;
+  }
 };
 
 const refreshAccessToken = async (refreshToken) => {
@@ -44,6 +54,7 @@ const refreshAccessToken = async (refreshToken) => {
 
 router.get("/search", async (req, res) => {
   const { query } = req.query;
+  console.log("Request user", req.user);
 
   if (!req.user || !req.user.accessToken) {
     return res.status(401).send("Access Token is missing");
