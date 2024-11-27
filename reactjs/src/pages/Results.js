@@ -19,6 +19,13 @@ function Results() {
           {artists.map((artist) => (
             <div key={artist.id}>
               <h3>{artist.name}</h3>
+              <a
+                href={artist.external_urls.spotify}
+                target="_blank"
+                rel="noopener no referrer"
+              >
+                View on Spotify
+              </a>
             </div>
           ))}
         </div>
@@ -31,6 +38,13 @@ function Results() {
             <div key={album.id}>
               <h3>{album.name}</h3>
               <p>{album.artists.map((artist) => artist.name).join(", ")}</p>
+              <a
+                href={album.external_urls.spotify}
+                target="_blank"
+                rel="noopener no referrer"
+              >
+                Listen on Spotify
+              </a>
             </div>
           ))}
         </div>
@@ -42,7 +56,14 @@ function Results() {
           {tracks.map((track) => (
             <div key={track.id}>
               <h3>{track.name}</h3>
-              <p>{tracks.artists.map((artist) => artist.name).join(", ")}</p>
+              <p>{track.artists.map((artist) => artist.name).join(", ")}</p>
+              <a
+                href={track.external_urls.spotify}
+                target="_blank"
+                rel="noopener no referrer"
+              >
+                Listen on Spotify
+              </a>
             </div>
           ))}
         </div>
