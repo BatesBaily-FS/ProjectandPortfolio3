@@ -6,6 +6,7 @@ const authJWT = require("../middlewares/authJWT");
 router.use(authJWT);
 
 const isTokenExpired = (accessToken) => {
+  console.log("Access token is:", accessToken);
   if (!accessToken) return true;
   const payload = JSON.parse(
     Buffer.from(accessToken.split(".")[1], "base64").toString()
