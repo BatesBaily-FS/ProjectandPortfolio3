@@ -16,7 +16,6 @@ const SearchComponent = () => {
 
     try {
       const data = await searchMusic(query);
-
       navigate({
         pathname: "/results",
         state: { results: data },
@@ -27,7 +26,7 @@ const SearchComponent = () => {
   };
 
   return (
-    <div className="search-bar">
+    <form className="search-bar" onSubmit={handleSearch}>
       <input
         type="text"
         value={query}
@@ -35,7 +34,7 @@ const SearchComponent = () => {
         placeholder="Search for music"
       />
       <button type="submit">Search</button>
-    </div>
+    </form>
   );
 };
 

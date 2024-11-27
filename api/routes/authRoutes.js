@@ -93,6 +93,7 @@ router.get("/callback", async (req, res) => {
         const refreshToken = data.refresh_token;
 
         req.session.accessToken = accessToken;
+        console.log("Access Token stored in session:", accessToken);
 
         const userResponse = await axios.get("https://api.spotify.com/v1/me", {
           headers: { Authorization: `Bearer ${accessToken}` },
@@ -108,7 +109,11 @@ router.get("/callback", async (req, res) => {
         }
 
         const token = jwt.sign(
-          { id: user._id, accessToken },
+          {
+            id: user._id,
+            accessToken,
+            exp: Math.floor(Date.now() / 1000) + 60 * 60,
+          },
           process.env.JWT_SECRET,
           {
             expiresIn: "1h",
@@ -132,8 +137,8 @@ router.get("/callback", async (req, res) => {
         res.cookie("jwt", token, { httpOnly: true });
         res.cookie("refreshToken", refreshTokenJWT, { httpOnly: true });
 
+        console.log("Successful logged in and redirected");
         res.redirect("/noresults");
-        console.log("successful");
       } else {
         console.error("Error fetching token", data);
         res.redirect("/login");

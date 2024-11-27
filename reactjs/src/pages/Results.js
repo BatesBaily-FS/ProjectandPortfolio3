@@ -3,45 +3,52 @@ import { useLocation } from "react-router-dom";
 
 function Results() {
   const location = useLocation();
-  const { results } = location.state || {
-    results: { tracks: {}, albums: {}, artists: {} },
-  };
+  const results = location.state?.results || {};
+
+  const tracks = results.tracks?.items || [];
+  const albums = results.albums?.items || [];
+  const artists = results.artists?.items || [];
 
   return (
     <div className="results-page">
-      <main>
-        <h1>Search Results</h1>
-        <section className="categories">
-          <h2>Tracks</h2>
-          <ul>
-            {results.tracks?.items.map((track) => (
-              <li key={track.id}>
-                {track.name} by{" "}
-                {track.artists.map((artist) => artist.name).join(", ")}
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section className="categories">
-          <h2>Albums</h2>
-          <ul>
-            {results.albums?.items.map((album) => (
-              <li key={album.id}>
-                {album.name} by{" "}
-                {album.artists.map((artist) => artist.name).join(", ")}
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section className="categories">
+      <h1>Search Results</h1>
+
+      {artists.length > 0 && (
+        <div>
           <h2>Artists</h2>
-          <ul>
-            {results.artists?.items.map((artist) => (
-              <li key={artist.id}>{artist.name}</li>
-            ))}
-          </ul>
-        </section>
-      </main>
+          {artists.map((artist) => (
+            <div key={artist.id}>
+              <h3>{artist.name}</h3>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {albums.length > 0 && (
+        <div>
+          <h2>Albums</h2>
+          {albums.map((album) => (
+            <div key={album.id}>
+              <h3>{album.name}</h3>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {tracks.length > 0 && (
+        <div>
+          <h2>Tracks</h2>
+          {tracks.map((track) => (
+            <div key={track.id}>
+              <h3>{track.name}</h3>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {artists.length === 0 && albums.length === 0 && tracks.length === 0 && (
+        <p>No results found</p>
+      )}
     </div>
   );
 }
