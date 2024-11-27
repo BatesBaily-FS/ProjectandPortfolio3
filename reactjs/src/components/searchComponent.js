@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { searchMusic } from "../services/spotifyService";
+import "../App.css";
 
 const SearchComponent = () => {
   const [query, setQuery] = useState("");
@@ -8,8 +9,13 @@ const SearchComponent = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
+    if (!query) {
+      alert("Please enter a search query.");
+      return;
+    }
+
     try {
-      const data = await searchMusic(query, "track,album,artist");
+      const data = await searchMusic(query);
 
       navigate({
         pathname: "/results",
@@ -21,14 +27,14 @@ const SearchComponent = () => {
   };
 
   return (
-    <div>
+    <div className="search-bar">
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for music"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button type="submit">Search</button>
     </div>
   );
 };

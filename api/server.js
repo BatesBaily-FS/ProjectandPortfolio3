@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 8888;
 // Middlewares
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: "*",
     credentials: true,
   })
 );
@@ -38,7 +38,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
+    cookie: { secure: process.env.NODE_ENV === "production", sameSite: "None" },
   })
 );
 

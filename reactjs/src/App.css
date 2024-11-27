@@ -36,6 +36,11 @@
   align-content: center;
 }
 
+/* Search bar */
+.search-bar {
+  align-self: center;
+}
+
 /* Login page */
 
 .login-page {
