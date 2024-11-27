@@ -45,6 +45,10 @@ const refreshAccessToken = async (refreshToken) => {
 router.get("/search", async (req, res) => {
   const { query } = req.query;
 
+  if (!req.user || !req.user.accessToken) {
+    return res.status(401).send("Access Token is missing");
+  }
+
   try {
     if (isTokenExpired(req.user.accessToken)) {
       console.log("Access token expired, refreshing...");
