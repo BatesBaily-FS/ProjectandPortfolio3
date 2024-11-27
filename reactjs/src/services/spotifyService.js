@@ -23,6 +23,11 @@ export const searchMusic = async (query) => {
       },
     });
 
+    console.log("Spotify API response:", response.data);
+    console.log("tracks:", response.data.tracks.items);
+    console.log("artists:", response.data.artists.items);
+    console.log("albums:", response.data.albums.items);
+
     return response.data;
   } catch (error) {
     console.error("Error fetching search results:", error);

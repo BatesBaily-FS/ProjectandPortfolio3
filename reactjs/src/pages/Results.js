@@ -30,6 +30,7 @@ function Results() {
           {albums.map((album) => (
             <div key={album.id}>
               <h3>{album.name}</h3>
+              <p>{album.artists.map((artist) => artist.name).join(", ")}</p>
             </div>
           ))}
         </div>
@@ -41,6 +42,7 @@ function Results() {
           {tracks.map((track) => (
             <div key={track.id}>
               <h3>{track.name}</h3>
+              <p>{tracks.artists.map((artist) => artist.name).join(", ")}</p>
             </div>
           ))}
         </div>
