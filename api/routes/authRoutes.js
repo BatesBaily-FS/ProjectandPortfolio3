@@ -112,7 +112,6 @@ router.get("/callback", async (req, res) => {
           {
             id: user._id,
             accessToken,
-            exp: Math.floor(Date.now() / 1000) + 60 * 60,
           },
           process.env.JWT_SECRET,
           {
@@ -138,7 +137,7 @@ router.get("/callback", async (req, res) => {
         res.cookie("refreshToken", refreshTokenJWT, { httpOnly: true });
 
         console.log("Successful logged in and redirected");
-        res.redirect("/noresults");
+        res.redirect("/noresults?accessToken=" + accessToken);
       } else {
         console.error("Error fetching token", data);
         res.redirect("/login");
