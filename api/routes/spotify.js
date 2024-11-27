@@ -19,7 +19,7 @@ router.get("/search", async (req, res) => {
       },
       params: {
         q: query,
-        type: "tracks,album,artist",
+        type: "track,album,artist",
       },
     });
 
