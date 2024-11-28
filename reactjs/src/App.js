@@ -29,7 +29,7 @@ function MainRoutes() {
     <Routes>
       <Route path="/noresults" element={<NoResults />} />
       <Route path="/results" element={<Results />} />
-      {/* <Route path="/search" element={<SearchComponent />} /> */}
+      <Route path="/search" element={<SearchComponent />} />
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
       <Route path="/auth/callback" element={<AuthCallback />} />
