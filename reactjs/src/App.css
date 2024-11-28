@@ -77,12 +77,37 @@
 /* Results Page */
 
 .results-page {
+  padding: 20px;
+}
+
+.results-container {
   display: flex;
   flex-direction: column;
-  background-color: #d9d9d9;
-  height: 90vh;
-  justify-content: center;
+}
+
+.category {
+  margin-bottom: 30px;
+}
+
+.category h2 {
+  margin-bottom: 10px;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 150px;
+  margin-right: 20px;
   text-align: center;
+}
+
+.cover-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
 @keyframes App-logo-spin {

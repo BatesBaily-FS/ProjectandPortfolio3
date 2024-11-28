@@ -10,69 +10,95 @@ function Results() {
   const albums = results.albums || [];
   const artists = results.artists || [];
 
+  const limitedTracks = tracks.slice(0, 4);
+  const limitedAlbums = albums.slice(0, 4);
+  const limitedArtists = artists.slice(0, 4);
+
   return (
     <div className="results-page">
       <h1>Search Results</h1>
-
-      {artists.length > 0 && (
-        <div>
-          <h2>Artists</h2>
-          {artists.map((artist) => (
-            <div key={artist.id}>
-              <h3>{artist.name}</h3>
-              <a
-                href={artist.external_urls.spotify}
-                target="_blank"
-                rel="noopener no referrer"
-              >
-                View on Spotify
-              </a>
+      <div className="results-container">
+        {limitedArtists.length > 0 && (
+          <div className="category">
+            <h2>Artists</h2>
+            <div className="item-list">
+              {limitedArtists.map((artist) => (
+                <div key={artist.id} className="item">
+                  <img
+                    src={artist.images[0]?.url}
+                    alt={artist.name}
+                    className="cover-image"
+                  />
+                  <h3>{artist.name}</h3>
+                  <a
+                    href={artist.external_urls.spotify}
+                    target="_blank"
+                    rel="noopener no referrer"
+                  >
+                    View on Spotify
+                  </a>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        )}
 
-      {albums.length > 0 && (
-        <div>
-          <h2>Albums</h2>
-          {albums.map((album) => (
-            <div key={album.id}>
-              <h3>{album.name}</h3>
-              <p>{album.artists.map((artist) => artist.name).join(", ")}</p>
-              <a
-                href={album.external_urls.spotify}
-                target="_blank"
-                rel="noopener no referrer"
-              >
-                Listen on Spotify
-              </a>
+        {limitedAlbums.length > 0 && (
+          <div className="category">
+            <h2>Albums</h2>
+            <div className="item-list">
+              {limitedAlbums.map((album) => (
+                <div key={album.id} className="item">
+                  <img
+                    src={album.images[0]?.url}
+                    alt={album.name}
+                    className="cover-image"
+                  />
+                  <h3>{album.name}</h3>
+                  <p>{album.artists.map((artist) => artist.name).join(", ")}</p>
+                  <a
+                    href={album.external_urls.spotify}
+                    target="_blank"
+                    rel="noopener no referrer"
+                  >
+                    Listen on Spotify
+                  </a>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        )}
 
-      {tracks.length > 0 && (
-        <div>
-          <h2>Tracks</h2>
-          {tracks.map((track) => (
-            <div key={track.id}>
-              <h3>{track.name}</h3>
-              <p>{track.artists.map((artist) => artist.name).join(", ")}</p>
-              <a
-                href={track.external_urls.spotify}
-                target="_blank"
-                rel="noopener no referrer"
-              >
-                Listen on Spotify
-              </a>
+        {limitedTracks.length > 0 && (
+          <div className="category">
+            <h2>Tracks</h2>
+            <div className="item-list">
+              {limitedTracks.map((track) => (
+                <div key={track.id} className="item">
+                  <img
+                    src={track.images[0]?.url}
+                    alt={track.name}
+                    className="cover-image"
+                  />
+                  <h3>{track.name}</h3>
+                  <p>{track.artists.map((artist) => artist.name).join(", ")}</p>
+                  <a
+                    href={track.external_urls.spotify}
+                    target="_blank"
+                    rel="noopener no referrer"
+                  >
+                    Listen on Spotify
+                  </a>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        )}
 
-      {artists.length === 0 && albums.length === 0 && tracks.length === 0 && (
-        <p>No results found</p>
-      )}
+        {limitedArtists.length === 0 &&
+          limitedAlbums.length === 0 &&
+          limitedTracks.length === 0 && <p>No results found</p>}
+      </div>
     </div>
   );
 }
