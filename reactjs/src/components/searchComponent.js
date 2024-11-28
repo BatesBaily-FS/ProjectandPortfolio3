@@ -22,6 +22,7 @@ const SearchComponent = () => {
         pathname: "/results",
         state: { results: data },
       });
+      console.log("Navigating to results with state:", { results: data });
     } catch (error) {
       console.error("Search failed:", error);
     }
