@@ -24,7 +24,7 @@ const SearchComponent = () => {
       setResults({
         tracks: data.tracks.items || [],
         albums: data.albums.items || [],
-        artists: data.artist.items || [],
+        artists: data.artists.items || [],
       });
       navigate("/results");
     } catch (error) {
