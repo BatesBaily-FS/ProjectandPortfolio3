@@ -11,6 +11,10 @@ function Results() {
   const albums = results.albums?.items || [];
   const artists = results.artists?.items || [];
 
+  console.table(tracks);
+  console.table(artists);
+  console.table(albums);
+
   return (
     <div className="results-page">
       <h1>Search Results</h1>
