@@ -7,9 +7,9 @@ function Results() {
 
   console.log("Results:", results);
 
-  const tracks = results.tracks?.items || [];
-  const albums = results.albums?.items || [];
-  const artists = results.artists?.items || [];
+  const tracks = results.tracks ? results.tracks.items : [];
+  const albums = results.albums ? results.albums.items : [];
+  const artists = results.artists ? results.artists.items : [];
 
   console.table(tracks);
   console.table(artists);

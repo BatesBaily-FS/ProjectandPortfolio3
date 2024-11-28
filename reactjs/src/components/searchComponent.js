@@ -17,6 +17,7 @@ const SearchComponent = () => {
 
     try {
       const data = await searchMusic(query);
+      console.log("Search Results Data:", data);
       navigate({
         pathname: "/results",
         state: { results: data },
