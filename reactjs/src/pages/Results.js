@@ -5,6 +5,7 @@ function Results() {
   const location = useLocation();
   const results = location.state?.results || {};
 
+  console.log("Full Location Object:", location);
   console.log("Location State:", location.state);
   console.log("Results:", results);
 
