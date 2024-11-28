@@ -16,7 +16,7 @@ function Results() {
 
   return (
     <div className="results-page">
-      <h1>Search Results</h1>
+      <h1 className="page=heading">Search Results</h1>
       <div className="results-container">
         {limitedArtists.length > 0 && (
           <div className="category">

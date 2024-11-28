@@ -38,7 +38,7 @@
 
 /* Search bar */
 .search-bar {
-  align-self: center;
+  justify-content: center;
 }
 
 /* Login page */
@@ -78,6 +78,10 @@
 
 .results-page {
   padding: 20px;
+}
+
+.page-heading {
+  text-align: center;
 }
 
 .results-container {
