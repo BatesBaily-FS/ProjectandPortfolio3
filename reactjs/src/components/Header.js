@@ -10,7 +10,11 @@ function Header() {
         <img src={logo} className="logo" />
       </div>
       {(location.pathname === "/noresults" ||
-        location.pathname === "/results") && <SearchComponent />}
+        location.pathname === "/results") && (
+        <div className="search-container">
+          <SearchComponent />
+        </div>
+      )}
     </header>
   );
 }
