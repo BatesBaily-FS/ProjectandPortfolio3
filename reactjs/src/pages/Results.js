@@ -1,21 +1,14 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useData } from "../components/DataContext";
 
 function Results() {
-  const location = useLocation();
-  const results = location.state?.results || {};
+  const { results } = useData();
 
-  console.log("Full Location Object:", location);
-  console.log("Location State:", location.state);
   console.log("Results:", results);
 
   const tracks = results.tracks || [];
   const albums = results.albums || [];
   const artists = results.artists || [];
-
-  console.table(tracks);
-  console.table(artists);
-  console.table(albums);
 
   return (
     <div className="results-page">

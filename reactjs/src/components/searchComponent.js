@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { searchMusic } from "../services/spotifyService";
+import { useData } from "./DataContext";
 import "../App.css";
 
 const SearchComponent = () => {
+  const { setResults } = useData();
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
@@ -18,17 +20,13 @@ const SearchComponent = () => {
     try {
       const data = await searchMusic(query);
       console.log("Search Results Data:", data);
-      navigate({
-        pathname: "/results",
-        state: {
-          results: {
-            tracks: data.tracks.items,
-            albums: data.albums.items,
-            artists: data.artists.items,
-          },
-        },
+
+      setResults({
+        tracks: data.tracks.items || [],
+        albums: data.albums.items || [],
+        artists: data.artist.items || [],
       });
-      console.log("Navigating to results with state:", { results: data });
+      navigate("/results");
     } catch (error) {
       console.error("Search failed:", error);
     }
