@@ -28,24 +28,8 @@ function App() {
 function MainRoutes() {
   return (
     <Routes>
-      <Route
-        path="/noresults"
-        element={
-          <>
-            <NoResults />
-            <SearchComponent />
-          </>
-        }
-      />
-      <Route
-        path="/results"
-        element={
-          <>
-            <Results />
-            <SearchComponent />
-          </>
-        }
-      />
+      <Route path="/noresults" element={<NoResults />} />
+      <Route path="/results" element={<Results />} />
       <Route path="/search" element={<SearchComponent />} />
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
