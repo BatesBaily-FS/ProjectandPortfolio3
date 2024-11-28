@@ -7,8 +7,8 @@ function Results() {
   console.log("Results:", results);
 
   const tracks = results.tracks || [];
-  const albums = results.albums || [];
-  const artists = results.artists || [];
+  const albums = results.albums?.items || [];
+  const artists = results.artists?.items || [];
 
   const limitedTracks = tracks.slice(0, 4);
   const limitedAlbums = albums.slice(0, 4);
