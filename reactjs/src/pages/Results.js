@@ -25,7 +25,7 @@ function Results() {
               {limitedArtists.map((artist) => (
                 <div key={artist.id} className="item">
                   <img
-                    src={artists.images[0].url}
+                    src={limitedArtists.images[0].url}
                     alt={artist.name}
                     className="cover-image"
                   />
@@ -50,7 +50,7 @@ function Results() {
               {limitedAlbums.map((album) => (
                 <div key={album.id} className="item">
                   <img
-                    src={albums.images[0].url}
+                    src={limitedAlbums.images[0].url}
                     alt={album.name}
                     className="cover-image"
                   />
