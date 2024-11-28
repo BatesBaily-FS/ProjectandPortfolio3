@@ -22,9 +22,9 @@ const SearchComponent = () => {
         pathname: "/results",
         state: {
           results: {
-            tracks: data.tracks.items || [],
-            albums: data.albums.items || [],
-            artists: data.artists.items || [],
+            tracks: data.tracks.items,
+            albums: data.albums.items,
+            artists: data.artists.items,
           },
         },
       });
