@@ -5,6 +5,8 @@ function Results() {
   const location = useLocation();
   const results = location.state?.results || {};
 
+  console.log("Results:", results);
+
   const tracks = results.tracks?.items || [];
   const albums = results.albums?.items || [];
   const artists = results.artists?.items || [];
