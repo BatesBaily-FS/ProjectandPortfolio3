@@ -20,7 +20,13 @@ const SearchComponent = () => {
       console.log("Search Results Data:", data);
       navigate({
         pathname: "/results",
-        state: { results: data },
+        state: {
+          results: {
+            tracks: data.tracks.items,
+            albums: data.albums.items,
+            artists: data.artists.items,
+          },
+        },
       });
       console.log("Navigating to results with state:", { results: data });
     } catch (error) {

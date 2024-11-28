@@ -8,9 +8,9 @@ function Results() {
   console.log("Location State:", location.state);
   console.log("Results:", results);
 
-  const tracks = results.tracks?.items || [];
-  const albums = results.albums?.items || [];
-  const artists = results.artists?.items || [];
+  const tracks = results.tracks || [];
+  const albums = results.albums || [];
+  const artists = results.artists || [];
 
   console.table(tracks);
   console.table(artists);
