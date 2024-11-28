@@ -24,15 +24,6 @@ function Results() {
             <div className="item-list">
               {limitedArtists.map((artist) => (
                 <div key={artist.id} className="item">
-                  <img
-                    src={
-                      artists.images.length > 0
-                        ? artist.images[0].url
-                        : "default-image-url"
-                    }
-                    alt={artist.name}
-                    className="cover-image"
-                  />
                   <h3>{artist.name}</h3>
                   <a
                     href={artist.external_urls.spotify}
@@ -53,15 +44,6 @@ function Results() {
             <div className="item-list">
               {limitedAlbums.map((album) => (
                 <div key={album.id} className="item">
-                  <img
-                    src={
-                      album.images.length > 0
-                        ? album.images[0].url
-                        : "default-image-url"
-                    }
-                    alt={album.name}
-                    className="cover-image"
-                  />
                   <h3>{album.name}</h3>
                   <p>{album.artists.map((artist) => artist.name).join(", ")}</p>
                   <a
