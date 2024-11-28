@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import logo from "../components/spotifyLogo1.png";
+import backImg1 from "../components/background1.png";
+import backImg2 from "../components/background2.png";
 
 // import SearchComponent from "../components/SearchComponent";
 

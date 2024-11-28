@@ -1,6 +1,8 @@
 import React from "react";
 
 import logo from "../components/spotifyLogo1.png";
+import backImg1 from "../components/background1.png";
+import backImg2 from "../components/background2.png";
 
 function generateRandomString(length) {
   const characters =
